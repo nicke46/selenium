@@ -45,7 +45,7 @@ namespace OpenQA.Selenium
             this.session = new Lazy<DevToolsSession>(() =>
             {
                 IDevTools devToolsDriver = driver as IDevTools;
-                if (session == null)
+                if (devToolsDriver == null)
                 {
                     throw new WebDriverException("Driver must implement IDevTools to use these features");
                 }
@@ -92,7 +92,7 @@ namespace OpenQA.Selenium
 
         /// <summary>
         /// Adds a <see cref="NetworkRequestHandler"/> to examine incoming network requests,
-        /// and optionally modify the request or provide a response. 
+        /// and optionally modify the request or provide a response.
         /// </summary>
         /// <param name="handler">The <see cref="NetworkRequestHandler"/> to add.</param>
         public void AddRequestHandler(NetworkRequestHandler handler)
@@ -164,7 +164,7 @@ namespace OpenQA.Selenium
 
         /// <summary>
         /// Adds a <see cref="NetworkResponseHandler"/> to examine received network responses,
-        /// and optionally modify the response. 
+        /// and optionally modify the response.
         /// </summary>
         /// <param name="handler">The <see cref="NetworkResponseHandler"/> to add.</param>
         public void AddResponseHandler(NetworkResponseHandler handler)
